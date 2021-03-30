@@ -1,0 +1,98 @@
+.form {
+    margin-bottom: 2rem;
+    
+    &__input {
+        width: 45%;
+        font-size: 1.6rem;
+        font-family: inherit;
+        color: $color-dark-grey;
+        outline: none;
+        padding: 1.5rem 2rem;
+        border-radius: .2rem;
+        border: none;
+        border-bottom: 3px solid transparent;
+        transition: all .3s;
+
+        @include respond(tablet-port) {
+            width: 100%;
+        }
+
+        &::-webkit-input-placeholder {
+            font-family: inherit;
+            font-size: 1.6rem;
+            color: $color-dark-grey-2;
+        }
+
+        &:focus {
+            border-bottom: 3px solid $color-primary-dark;
+            box-shadow: 0 1rem 2rem rgba($color-dark-black, .2);
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+    }
+
+    &__label {
+        font-size: 1.3rem;
+        font-family: inherit;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        transition: all .3s;
+    }
+
+    &__input:placeholder-shown + &__label{
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+    &__radio--box {
+        display: inline-block;
+        width: 25%;
+
+        @include respond(tablet-port) {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__radio--btn {
+        display: none;
+    }
+
+    &__radio--selector {
+        display: inline-block;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: .5rem solid $color-primary;
+        transform: translateY(.9rem);
+        margin-right: 1rem;
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: "";
+            display: block;
+            height: 1.3rem;
+            width: 1.3rem;
+            border-radius: 50%;
+            background-color: $color-primary;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+    }
+
+    &__radio--label {
+        display: inline-block;
+    }
+
+    &__radio--btn:checked ~ &__radio--label &__radio--selector::after{
+        opacity: 1;
+    }
+}

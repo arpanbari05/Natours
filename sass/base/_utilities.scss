@@ -1,0 +1,48 @@
+// clearfix for row in a grid
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+// // clearfix for story__img-box
+// .story__img-box::after {
+//     clear: both;
+//     background-color: $color-dark-white;
+//     width: 15.5rem;
+//     height: 15.5rem;
+// }
+
+// utility class for centering the text in the header-secondary
+.u-center-text { text-align: center !important;}
+
+// utility class for margin of 8rem from the header-secondary
+.u-margin-bottom-8 { 
+    margin-bottom: 8rem !important;
+
+    @include respond(tablet-port) {
+        margin-bottom: 4rem !important;
+    }
+}
+
+.u-margin-bottom-4 { 
+    margin-bottom: 4rem !important;
+
+    @include respond(tablet-port) {
+        margin-bottom: 2rem !important;
+    }
+}
+.u-margin-bottom-2 { margin-bottom: 2rem !important; }
+
+.u-margin-bottom-1 { margin-bottom: 1rem !important; }
+
+
+
+// margin top utility classes
+.u-margin-top-10 { 
+    margin-top: 10rem !important;
+
+    @include respond(tablet-port) {
+        margin-top: 0rem !important;
+    }
+}

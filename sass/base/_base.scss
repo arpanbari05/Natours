@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Lato;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+
+    @include respond(tablet-land) {
+        font-size: 56.25%;
+    }
+
+    @include respond(tablet-port) {
+        font-size: 50%;
+    }
+
+    @include respond(phone) {
+        font-size: 40%;
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
+}
+
+body {
+    padding: 3rem;
+    font-size: 1.6rem;
+    font-family: Lato;
+    color: #777;
+    line-height: 1.7;
+    box-sizing: inherit;
+
+    @include respond(tablet-port) {
+        padding: 0 0;
+    }
+}

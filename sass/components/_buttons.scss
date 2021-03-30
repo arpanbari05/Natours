@@ -1,0 +1,96 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        font-size: 1.6rem;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        border-radius: 10rem;
+        display: inline-block;
+        position: relative;
+        border: none;
+        outline: none;
+        
+    }
+
+    &--white{
+        background-color: $color-dark-white;
+        color: $color-dark-grey;
+        text-transform: uppercase;
+
+        &::after {
+            background-color: $color-dark-white;
+        }
+    }
+
+    &--green {
+        background-color: $color-primary;
+        color: $color-dark-white;
+        text-transform: uppercase;
+        transition: all 1s;
+
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+
+    &:hover {
+        box-shadow: 1rem 2rem 3rem  rgba($color-dark-black, 0.2);
+        transform: translateY(-.3rem);
+        transition: all .1s;
+    }
+
+    &:active {
+        box-shadow: 1rem 2rem 2rem rgba($color-dark-black, 0.1);
+        transform: translateY(-.1rem);
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 10rem;
+        z-index: -1;
+        transition: all .3s;
+    }
+    
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.9);
+        opacity: 0;
+    }
+    
+    &-animated{
+        animation: moveInBottom .5s;
+        animation-delay: .5s;
+        animation-fill-mode: backwards;
+    }
+}
+
+.btn-green {
+    &:link, 
+    &:visited {
+        font-size: 1.6rem;
+        text-decoration: none;
+        color: $color-primary;
+        padding: 3px 5px;
+        border-bottom: 1px solid $color-primary;
+        border-radius: 3px;
+        transition: all .4s;
+    }
+    
+    &:hover {
+        background-color: $color-primary;
+        color: $color-dark-white;
+        transform: translateY(-.4rem);
+        box-shadow: .5rem 1rem 2rem rgba($color-dark-black, .2);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+}

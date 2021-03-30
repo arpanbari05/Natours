@@ -1,0 +1,46 @@
+@mixin cols {
+    float: left;
+
+    &:not(:last-child) {
+        margin-right: $gutter-right;
+
+        @include respond(tablet-port) {
+            margin-right: 0;
+        }
+
+        @include respond(phone) {
+            margin-right: 0;
+        }
+    }
+}
+
+/*
+    MIXIN RESPOND MANAGER
+
+    MAX WIDTH FOR SPECIFIC DEVICES
+    -phone: 600px
+    -tablet-port: 600-900px
+    -tablet-land: 900-1200px
+    -normal-desktop: 1200-1800px ::default size that we have implemented
+    -big-desktop: 1800+px
+*/
+
+@mixin respond($breakpoint) {
+
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content; } // max-width: 600px
+    }
+
+    @if $breakpoint == tablet-port {
+        @media (max-width: 56.25em) { @content; } //max-width: 900px
+    }
+
+    @if $breakpoint == tablet-land {
+        @media (max-width: 75em) { @content; } //max-width: 1200px
+    }
+     
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) { @content; } //max-width: 1800px
+    }
+
+}

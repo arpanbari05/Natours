@@ -1,0 +1,224 @@
+.card {
+    height: 52rem;
+    font-size: 2.9rem;
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    
+    
+    // FRONT   
+    &__side {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: all .8s;
+        border-radius: 3px;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        backface-visibility: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-dark-black, .4);
+
+        &--front {
+            background-color: white;
+        }
+        
+
+        &--back {
+            transform: rotateY(180deg);
+        }
+    }
+
+    &:hover .card__side--front{
+        transform: rotateY(-180deg);
+    }
+
+    &:hover .card__side--back {
+        transform: rotateY(0deg);
+    }
+
+    &__img {
+        background-size: cover;
+        height: 45%;
+        background-blend-mode: screen;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../images/nat-5.jpg);
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../images/nat-6.jpg);
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../images/nat-7.jpg);
+        }
+
+
+        
+    }
+
+    &__heading {
+        position: absolute;
+        color: $color-dark-white;
+        top: 25%;
+        right: 2rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        text-align: right;
+        width: 75%;     
+
+        .span-1 {
+            background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .8), rgba($color-secondary-dark, .8));
+            padding: 1rem 1rem;
+        }
+
+        .span-2 {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, .8));
+            padding: 1rem 1rem;
+        }
+
+        .span-3 {
+            background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .8), rgba($color-tertiary-dark, .8));
+            padding: 1rem 1rem;
+        }
+    }
+
+    &__detail__box {
+        padding: 3rem 2rem;
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin: 0 auto;
+        text-align: center;
+        width: 80%;
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            padding: 1rem 0;
+
+            &:not(:last-child) {
+                border-bottom: 2px solid $color-light-grey-1;
+            }
+            
+        }
+    }
+
+
+    //BACK
+    &__dpb {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+
+    &__price-box {
+        margin-bottom: 6rem;
+        
+    }
+    
+    &__only {
+        font-size: 1.6rem;
+        letter-spacing: .5rem;
+        color: $color-dark-white;
+        text-transform: uppercase;
+        font-weight: 400;
+
+    }
+
+    &__value {
+        font-size: 6rem;
+        font-weight: 300;
+        color: $color-dark-white;
+
+    }
+
+    .back-1 {
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+    }
+
+    .back-2 {
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+    }
+
+    .back-3 {
+        background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+    }
+
+
+
+    // media query
+    @include respond(tablet-port) {
+        height: auto;
+        font-size: 2.9rem;
+        border-radius: 3px;
+        position: relative;
+        background-color: $color-dark-white;
+        box-shadow: 0 1.5rem 4rem rgba($color-dark-black, .4);
+        
+        
+        // FRONT   
+        &__side {
+            width: 100%;
+            height: auto;
+            position: relative;
+            transition: all .8s;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            box-shadow: none;
+
+            &--back {
+                transform: rotateY(0);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+
+        &:hover .card__side--front{
+            transform: rotateY(0);
+        }
+
+
+        &__img {
+            background-size: cover;
+            height: 25%;
+            background-blend-mode: screen;
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);   
+        }
+
+
+
+        //BACK
+        &__dpb {
+            text-align: center;
+            position: relative;
+            top: 0%;
+            left: 0%;
+            transform: translate(0%, 0%);
+            width: 100%;
+            padding: 4rem 0 3rem 0;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        &__price-box {
+            margin-bottom: 1rem;
+        }
+
+        &__value {
+            font-size: 4rem;
+            font-weight: 300;
+            color: $color-dark-white;
+
+        }
+    }
+    
+}
